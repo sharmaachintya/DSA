@@ -35,6 +35,5 @@ int main()
     {
         cin>>arr2[i];
     }
-    int res = InterSec(arr1, arr2, n1, n2);
-    cout<<res;
+    InterSec(arr1, arr2, n1, n2);
 }
