@@ -3,6 +3,9 @@
         "iostream": "cpp",
         "bitset": "cpp",
         "chrono": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "vector": "cpp",
+        "*.tcc": "cpp",
+        "list": "cpp"
     }
 }
