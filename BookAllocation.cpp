@@ -18,7 +18,7 @@ bool isPossible(vector<int> &arr, int n, int m, int mid)
             {
                 return false;
             }
-            pageSum = pageSum + arr[i];
+            pageSum = arr[i];
         }
     }
     return true;
