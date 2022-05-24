@@ -25,7 +25,7 @@ bool isPossible(vector<int> &arr, int n, int m, int mid)
 }
 int main()
 {
-    vector <int> arr = {10,20,30,40};
+    vector <int> arr = {10,20,30,40}; //Pages in each Book
     int n = 4; // Number of books
     int m = 2; // Nmber of students
     int start = 0;
