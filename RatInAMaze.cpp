@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<algorithm>
 using namespace std;
 bool isSafe(int x, int y, int n, vector<vector<int>> visited, vector<vector<int>> m)
 {
@@ -80,6 +81,7 @@ int main()
     }
     string path = "";
     solve(m,n,ans,srcx,srcy,visited,path);
+    sort(ans.begin(),ans.end());
     for (int i=0;i<ans.size();i++)
     {
         cout<<ans[i]<<" ";
