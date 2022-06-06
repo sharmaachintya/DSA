@@ -11,6 +11,17 @@ class Node{
             this->data = data;
             this-> next = NULL;
         }
+        // Destructor
+        ~Node()
+        {
+            int value  = this->data;
+            if(this->next != NULL)              // Memory Free
+            {
+                delete next;
+                this->next = NULL;
+            }
+            cout<<"Memory Freed for Node with data "<<this->data<<endl;
+        }
 };
 
 void insertAtHead(Node* &head, int d)     // Insertion At Head
@@ -53,7 +64,31 @@ void insertAtPosition(Node* &tail, Node* &head, int position, int d)    // Inser
     temp->next = nodeToInsert;
 }
 
-
+void deleteAtPosition(Node* &head, Node* &tail,int position)                 // Deletion based on the Position
+{
+    if (position == 1)                                          // Deletion of First Node
+    {
+        Node *temp = head;
+        head = head->next;
+        temp->next = NULL;
+        delete temp;
+    }
+    else                                                        // Deletion of any Middle Node and Last Node
+    {
+        Node *prev = NULL;
+        Node *curr = head;
+        int cnt = 1;
+        while(cnt < position)
+        {
+            prev = curr;
+            curr = curr->next;
+            cnt++;
+        }
+        prev->next = curr->next;
+        curr->next = NULL;
+        delete curr;
+    }
+}
 
 void print(Node* &head)                  // L.L Traversal
 {
@@ -77,9 +112,13 @@ int main()
     insertAtHead(head, 15);
     insertAtTail(tail, 50);
     insertAtTail(tail, 90);
-    insertAtPosition(tail,head,2,20);
-    insertAtPosition(tail,head, 1, 8);
+    insertAtPosition(tail, head, 2, 20);
+    insertAtPosition(tail, head, 1, 8);
+    cout<<"LL BEFORE DELETION: "<<endl;
+    print(head);
 
+    deleteAtPosition(head, tail, 5);
+    cout<<"LL AFTER DELETION: "<<endl;
     print(head);
 
     cout<<"Head "<<head->data<<endl;
