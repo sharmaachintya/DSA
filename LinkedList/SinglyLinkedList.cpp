@@ -27,6 +27,34 @@ void insertAtTail(Node* &tail,int d)      // Insertion At Tail
     tail = tail->next;
 }
 
+void insertAtPosition(Node* &tail, Node* &head, int position, int d)    // Insertion At Position
+{
+    if (position == 1)                                     // Condition when wanted to insert at position 1
+    {
+        insertAtHead(head, d);
+        return;
+    }
+    Node *temp = head;
+    int cnt = 1;
+    while(cnt < position - 1)
+    {
+        temp = temp->next;
+        cnt++;
+    }
+
+    if(temp->next == NULL)                             // Condition for updating tail, when wanted to insert at last position
+    {
+        insertAtTail(tail,d);
+        return;
+    }
+
+    Node *nodeToInsert = new Node(d);
+    nodeToInsert->next = temp->next;
+    temp->next = nodeToInsert;
+}
+
+
+
 void print(Node* &head)                  // L.L Traversal
 {
     Node *temp = head;
@@ -44,12 +72,16 @@ int main()
 
     Node *head = node1;
     Node *tail = node1;
-    print(head);
 
-    // insertAtHead(head, 12);
-    // insertAtHead(head, 15);
+    insertAtHead(head, 12);
+    insertAtHead(head, 15);
     insertAtTail(tail, 50);
     insertAtTail(tail, 90);
+    insertAtPosition(tail,head,2,20);
+    insertAtPosition(tail,head, 1, 8);
 
     print(head);
+
+    cout<<"Head "<<head->data<<endl;
+    cout<<"Tail "<<tail->data<<endl;
 }
