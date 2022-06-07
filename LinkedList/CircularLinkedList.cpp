@@ -24,7 +24,7 @@ class Node{
 
 };
 
-void insertNode(Node* &tail, int element, int d)
+void insertNode(Node* &tail, int element, int d)             // Insertion
 {
     //assuming that the element is present in the list
     if (tail == NULL)                                    // Empty List
@@ -46,7 +46,7 @@ void insertNode(Node* &tail, int element, int d)
     }
 }
 
-void deleteNode(Node* &tail, int value)
+void deleteNode(Node* &tail, int value)                     // Deletion
 {
     if(tail == NULL)
     {
@@ -62,7 +62,14 @@ void deleteNode(Node* &tail, int value)
             prev = prev->next;
         }
         prev->next = curr->next;
-        if (tail == curr)
+
+
+        if(prev == curr)                   // Linked list of single Node
+        {
+            tail = NULL;
+        }
+
+        if (tail == curr)                 // Linked list of greater than equal to 2 Nodes
         {
             tail = prev;
         }
