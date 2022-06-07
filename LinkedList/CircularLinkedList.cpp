@@ -69,7 +69,7 @@ void deleteNode(Node* &tail, int value)                     // Deletion
             tail = NULL;
         }
 
-        if (tail == curr)                 // Linked list of greater than equal to 2 Nodes
+        else if (tail == curr)                 // Linked list of greater than equal to 2 Nodes
         {
             tail = prev;
         }
@@ -80,14 +80,21 @@ void deleteNode(Node* &tail, int value)                     // Deletion
 
 void print(Node* &tail)
 {
-    Node* temp = tail; 
-    do
+    if (tail == NULL)
     {
-        cout<<tail->data<<" ";
-        tail = tail->next;
+        cout<<"List is Empty..."<<endl;
     }
-    while(tail != temp);
-    cout<<endl;
+    else
+    {
+        Node* temp = tail; 
+        do
+        {
+            cout<<tail->data<<" ";
+            tail = tail->next;
+        }
+        while(tail != temp);
+        cout<<endl;
+    }
 }
 
 int main()
@@ -105,7 +112,7 @@ int main()
     cout<<"Liked List Before Deletion: "<<endl;
     print(tail);
 
-    deleteNode(tail, 70);
+    deleteNode(tail, 3);
 
     cout<<"Liked List After Deletion: "<<endl;
     print(tail);
