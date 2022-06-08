@@ -52,7 +52,7 @@ bool circularOrNot(Node* tail)
 {
     if (tail == NULL)
     {
-        return false;
+        return true;
     }
     Node* temp = tail->next;
     while (temp != NULL && temp != tail)
