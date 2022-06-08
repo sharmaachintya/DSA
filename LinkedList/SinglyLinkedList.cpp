@@ -161,7 +161,7 @@ int main()
     print(head);
 
     //deleteAtPosition(head, tail, 5);
-    deletionAtValue(head, 90);
+    deletionAtValue(head, 20);
     cout<<"LL AFTER DELETION: "<<endl;
     print(head);
 
