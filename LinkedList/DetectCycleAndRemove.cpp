@@ -121,6 +121,21 @@ Node* getStartingNode(Node* tail)
     return slow;
 }
 
+void RemoveCycle(Node* tail)
+{
+    if (tail == NULL)
+    {
+        return;
+    }
+    Node* startOfCycle = getStartingNode(tail);
+    Node* temp = startOfCycle;
+    while (temp->next != startOfCycle)
+    {
+        temp = temp->next;
+    }
+    temp->next = NULL;
+}
+
 void print(Node* &tail)
 {
     if (tail == NULL)
@@ -157,4 +172,6 @@ int main()
 
     Node* loop = getStartingNode(tail);
     cout<<"LOOP STARTS AT: "<<loop->data<<endl;
+    RemoveCycle(tail);
+    print(tail);
 }
