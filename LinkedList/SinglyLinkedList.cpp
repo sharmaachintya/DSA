@@ -188,6 +188,21 @@ Node* getStartingNode(Node* tail)
 }
 
 
+void RemoveCycle(Node* tail)
+{
+    if (tail == NULL)
+    {
+        return;
+    }
+    Node* startOfCycle = getStartingNode(tail);
+    Node* temp = startOfCycle;
+    while (temp->next != startOfCycle)
+    {
+        temp = temp->next;
+    }
+    temp->next = NULL;
+}
+
 
 int main()
 {
@@ -212,6 +227,8 @@ int main()
     cout<<ans<<endl;
     Node* loop = getStartingNode(head);
     cout<<"LOOP STARTS AT: "<<loop->data<<endl;
+    RemoveCycle(head);
+    print(head);
 
     //deleteAtPosition(head, tail, 5);
     //deletionAtValue(head, 20);
