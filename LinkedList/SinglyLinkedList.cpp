@@ -143,6 +143,52 @@ void print(Node* &head)                  // L.L Traversal
     }
     cout<<endl;
 }
+
+Node* floydDetectLoop(Node* tail)
+{
+    if (tail == NULL)
+    {
+        return NULL;
+    }
+    Node* slow = tail;
+    Node* fast = tail;
+
+    while(slow != NULL && fast != NULL )
+    {
+        fast = fast->next;
+        if (fast != NULL)
+        {
+            fast = fast->next;
+        }
+        slow = slow->next;
+        if (slow == fast)
+        {
+            cout<<"present at "<<slow->data<<endl;
+            return slow;
+        }
+    }
+    return NULL;
+}
+
+Node* getStartingNode(Node* tail)
+{
+    Node* slow = tail;
+
+    if (tail == NULL)
+    {
+        return NULL;
+    }
+    Node* intersection = floydDetectLoop(tail);
+    while (slow != intersection)
+    {
+        slow = slow->next;
+        intersection = intersection->next;
+    }
+    return slow;
+}
+
+
+
 int main()
 {
     //Node *node1 = new Node(10);
@@ -154,17 +200,24 @@ int main()
     insertAtHead(head, tail, 12);
     insertAtHead(head, tail, 15);
     insertAtTail(tail, head, 50);
-    insertAtTail(tail, head, 90);
-    insertAtPosition(tail, head, 2, 20);
+    //insertAtTail(tail, head, 90);
+    //insertAtPosition(tail, head, 2, 20);
     insertAtPosition(tail, head, 1, 8);
-    cout<<"LL BEFORE DELETION: "<<endl;
-    print(head);
+    //cout<<"LL BEFORE DELETION: "<<endl;
+    
+    tail->next = head->next;
+    //print(head);
+
+    bool ans = floydDetectLoop(head);
+    cout<<ans<<endl;
+    Node* loop = getStartingNode(head);
+    cout<<"LOOP STARTS AT: "<<loop->data<<endl;
 
     //deleteAtPosition(head, tail, 5);
-    deletionAtValue(head, 20);
-    cout<<"LL AFTER DELETION: "<<endl;
-    print(head);
+    //deletionAtValue(head, 20);
+    //cout<<"LL AFTER DELETION: "<<endl;
+    //print(head);
 
-    cout<<"Head "<<head->data<<endl;
-    cout<<"Tail "<<tail->data<<endl;
+    //cout<<"Head "<<head->data<<endl;
+    //cout<<"Tail "<<tail->data<<endl;
 }
