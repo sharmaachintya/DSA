@@ -103,7 +103,7 @@ Node* mergeList(Node* &head1, Node* &head2)
     {
         return head1;
     }
-    if (head1->data <= head2->data)
+    if (head1->data >= head2->data)
     {
         return solve(head1, head2);
     }
