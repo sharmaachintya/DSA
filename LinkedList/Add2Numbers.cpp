@@ -124,11 +124,13 @@ int main()
     Node* head2 = NULL;
     Node* tail2 = NULL;
 
+    insertAtTail(tail1,head1, 2);
     insertAtTail(tail1,head1, 4);
-    insertAtTail(tail1,head1, 5);
-    insertAtTail(tail2,head2, 3);
-    insertAtTail(tail2,head2, 4);
+    insertAtTail(tail1,head1, 9);
     insertAtTail(tail2,head2, 5);
+    insertAtTail(tail2,head2, 6);
+    insertAtTail(tail2,head2, 4);
+    insertAtTail(tail2,head2, 9);
 
     print(head1); 
     print(head2);  
