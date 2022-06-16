@@ -8,7 +8,7 @@ int minimumPlat(vector<int> start, vector<int> end)
     sort(end.begin(), end.end());
     int n = start.size();
     int plat = 1, max = 1;
-    int i = 1, j = 0;
+    int i = 1, j = 0; 
     while (i < n && j < n)
     {
         if (start[i] <= end[j])
