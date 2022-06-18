@@ -70,5 +70,10 @@ class Nstack{
 };
 int main()
 {
-    
+    Nstack st1(3, 6);
+    st1.push(10, 1);
+    st1.push(20,1);
+    st1.push(100, 2);
+    st1.pop(2);
+    st1.pop(1);
 }
