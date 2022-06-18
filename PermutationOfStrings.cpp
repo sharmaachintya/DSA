@@ -4,6 +4,7 @@
 using namespace std;
 void solve (vector<int> nums, vector<vector<int>> &ans, int index)
 {
+    // Base Case
     if (index >= nums.size())
     {
         ans.push_back(nums);
