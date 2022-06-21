@@ -39,7 +39,7 @@ class Dequeue{
 
         bool pushBack(int x)
         {
-            if (front == 0 && rear == size - 1 || rear == (front - 1) % (size - 1))
+            if (front == 0 && rear == size - 1 || front != 0 && rear == (front - 1) % (size - 1))
             {
                 return false;
             }
@@ -144,7 +144,7 @@ class Dequeue{
 
         bool isFull()
         {
-            if (front == 0 && rear == size - 1 || rear == (front - 1) % (size - 1))
+            if (front == 0 && rear == size - 1 || front != 0 && rear == (front - 1) % (size - 1))
             {
                 return true;
             }
