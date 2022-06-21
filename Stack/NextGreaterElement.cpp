@@ -32,7 +32,7 @@ vector <int> nextGreat(vector<int> &arr, int n)
 
 int main()
 {
-    vector <int> arr = {1,2,4,3};
+    vector <int> arr = {1,2,1};
     int n = arr.size();
     vector<int> ans = nextGreat(arr, n);
     for (int i=0;i<n;i++)
