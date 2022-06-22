@@ -23,11 +23,11 @@ int solve(int *arr, int n, int k)
     }
 
     int ans = 0;
+    ans = ans + arr[maxi.front()] + arr[mini.front()];
+
+    // Remaining Windows
     for (int i=k;i<n;i++)
     {
-        ans = ans + arr[maxi.front()] + arr[mini.front()];
-
-        // next window
         
         // Removal
 
@@ -52,11 +52,8 @@ int solve(int *arr, int n, int k)
         }
         maxi.push_back(i);
         mini.push_back(i);
+        ans = ans + arr[maxi.front()] + arr[mini.front()];
     }
-
-    // Consider last window
-
-    ans = ans + arr[maxi.front()] + arr[mini.front()];
     return ans;
 }
 
