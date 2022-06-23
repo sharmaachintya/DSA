@@ -16,12 +16,18 @@ public:
         bool rightAns = right.first;
 
         bool diff = abs(left.second - right.second) <=1; 
+        pair<bool,int> ans;
+        ans.second = max(left.second, right.second) + 1;
 
         if (leftAns && rightAns && diff)
         {
-            return true;
+            ans.first = true;
         }
-        return false;
+        else
+        {
+            ans.first = false;
+        }
+        return ans;
     }
     
     bool isBalanced(TreeNode* root) {
