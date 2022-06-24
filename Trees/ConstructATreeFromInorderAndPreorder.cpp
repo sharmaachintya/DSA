@@ -35,6 +35,8 @@ public:
         
         int element = pre[index++];
         TreeNode* root = new TreeNode(element);
+
+        // Find elemnts index in inorder array
         int pos = findPosition(in, element, size);
         
         // Recursive Calls
