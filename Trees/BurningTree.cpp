@@ -1,60 +1,90 @@
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
- *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
- *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
- * };
- */
 class Solution {
-public:
-    
-    int findPos(vector<int> inorder, int element, int n)
+  public:
+  
+    Node* createParentMapping(Node* root, int target, map<Node*, Node*> &nodeToParent)
     {
-        for (int i=0;i<n;i++)
+        Node* res = NULL;
+        
+        queue<Node*> q;
+        q.push(root);
+        nodeToParent[root] = NULL;
+        
+        while (!q.empty())
         {
-            if (inorder[i] == element)
+            Node* front = q.front();
+            q.pop();
+            
+            if (front->data == target)
             {
-                return i;
+                res = front;
+            }
+            if (front->left)
+            {
+                nodeToParent[front->left] = front;
+                q.push(front->left);
+            }
+            if (front->right)
+            {
+                nodeToParent[front->right] = front;
+                q.push(front->right);
             }
         }
-        return -1;
+        return res;
     }
+  
     
-    
-    
-    TreeNode* solve(vector<int> inorder, vector<int> postorder, int inorderS, int inorderE, int &index, int n)
+    int burnTree(Node* targetNode, map<Node*, Node*> &nodeToParent, int &ans)
     {
-        // base case
-        if (index < 0 || inorderS > inorderE)
+        map<Node*, bool> visited;
+        queue<Node*> q;
+        
+        q.push(targetNode);
+        
+        while (!q.empty())
         {
-            return NULL;
+            bool flag = 0;
+            int size = q.size();
+            for (int i=0;i<size;i++)
+            {
+                Node* front = q.front();
+                q.pop();
+                
+                if (front->left && !visited[front->left])
+                {
+                    flag = 1;
+                    q.push(front->left);
+                    visited[front->left] = 1;
+                }
+                if (front->right && !visited[front->right])
+                {
+                    flag = 1;
+                    q.push(front->right);
+                    visited[front->right] = 1;
+                }
+                if (nodeToParent[front] && !visited[nodeToParent[front]])
+                {
+                    flag = 1;
+                    q.push(nodeToParent[front]);
+                    visited[nodeToParent[front]] = 1;
+                }
+            }
+            
+            if (flag == 1)
+            {
+                ans++;
+            }
         }
-        
-        // creating root node
-        int element = postorder[index--];
-        TreeNode* root = new TreeNode(element);
-        
-        // Finding position of root node in INORDER vector
-        int position = findPos(inorder, element, n);
-        
-        // Recurssive Calls
-        root->right = solve(inorder, postorder, position + 1, inorderE, index, n);
-        root->left = solve(inorder, postorder, inorderS, position - 1, index, n);
-        
-        return root;
+        return ans;
     }
+  
     
-    
-    TreeNode* buildTree(vector<int>& inorder, vector<int>& postorder) {
-        int inorderS = 0;
-        int inorderE = inorder.size()-1;
-        int n = inorder.size();
-        int index = n - 1;
-        TreeNode* ans = solve(inorder, postorder, inorderS, inorderE, index, n);
+    int minTime(Node* root, int target) 
+    {
+        map<Node*, Node*> nodeToParent;
+        Node* targetNode = createParentMapping(root, target, nodeToParent);
+        
+        int ans = burnTree(targetNode, nodeToParent, ans);
+        
         return ans;
     }
 };
