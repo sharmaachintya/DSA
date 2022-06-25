@@ -82,18 +82,15 @@ void takeInput(Node* &root)
     }
 }
 
-bool searchNode(Node* root, int val)
+void findKthSmallest(Node* root, vector<int> &ans)
 {
-    Node* temp = root;
-    while (temp != NULL)
+    if (root == NULL)
     {
-        if (temp->data == val)
-        {
-            return true;
-        }
-        val > temp->data ? temp = temp->right : temp = temp->left;
+        return;
     }
-    return false;
+    findKthSmallest(root->left, ans);
+    ans.push_back(root->data);
+    findKthSmallest(root->right, ans);
 }
 
 int main()
@@ -103,16 +100,11 @@ int main()
     cout<<"Enter data to create BST" <<endl;
     takeInput(root);
 
-    cout<<"Printintg BST: "<<endl;
-    levelOrderTrav(root);
+    int k = 2;
+    vector<int> ans;
+    findKthSmallest(root, ans);
+    int res = ans[k-1];
+    cout<<res<<endl;
 
-    int val = 5;
-    if(searchNode(root, val))
-    {
-        cout<<val<<" Node is present"<<endl;
-    }
-    else
-    {
-        cout<<val<<" Node is not present"<<endl;
-    }
+
 }

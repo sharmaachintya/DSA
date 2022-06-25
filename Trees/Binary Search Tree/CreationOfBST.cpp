@@ -104,6 +104,7 @@ pair<int, int> minMax(Node* root)
 
 int main()
 {
+    // 50 20 70 10 30 110 -1
     Node* root = NULL;
     cout<<"Enter data to create BST" <<endl;
     takeInput(root);
