@@ -82,6 +82,26 @@ void takeInput(Node* &root)
     }
 }
 
+pair<int, int> minMax(Node* root)
+{
+    pair<int, int> ans;
+    Node* mini = root;
+    Node* maxi = root;
+    while (mini->left != NULL)
+    {
+        mini = mini->left;
+    }
+    int temp = mini->data;
+    ans.first = temp;
+    while (maxi->right != NULL)
+    {
+        maxi = maxi->right;
+    }
+    temp = maxi->data;
+    ans.second = temp;
+    return ans;
+}
+
 int main()
 {
     Node* root = NULL;
@@ -90,4 +110,9 @@ int main()
 
     cout<<"Printintg BST: "<<endl;
     levelOrderTrav(root);
+
+    pair<int, int> ans = minMax(root);
+
+    cout<<"MAX ELEMENT IN BST: "<<ans.first<<endl;
+    cout<<"MIN ELEMENT IN BST: "<<ans.second<<endl;
 }
