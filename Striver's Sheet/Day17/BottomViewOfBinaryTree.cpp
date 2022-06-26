@@ -9,7 +9,7 @@ class Node{
 
         Node(int d)
         {
-            this->data = d;
+            this->data = d; 
             this->left = NULL;
             this->right = NULL;
         }
