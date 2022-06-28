@@ -97,7 +97,7 @@ void inorderTrav(Node* root, vector<int> &ans)
     inorderTrav(root->right, ans);
 }
 
-Node* twoSumInBST(Node* root)
+Node* FlattenABST(Node* root)
 {
     vector<int> ans;
     inorderTrav(root, ans);
@@ -128,6 +128,6 @@ int main()
     cout<<"Enter data to create BST" <<endl;
     takeInput(root);
 
-    root = twoSumInBST(root);
+    root = FlattenABST(root);
     levelOrderTrav(root);
 }
