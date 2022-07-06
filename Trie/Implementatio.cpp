@@ -147,7 +147,7 @@ class Trie{
             return prefixUtil(child, prefix.substr(1));
         }
 
-        bool startsWith(string prefix)
+        bool startsWith(string prefix)                                 // PREFIX
         {
             return prefixUtil(root, prefix);
         }
