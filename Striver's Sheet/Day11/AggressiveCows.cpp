@@ -37,10 +37,11 @@ int main()
     }
     int high = maxi;
     int ans = -1;
-    int mid = low + (high - low) / 2;
+    //int mid = low + (high - low) / 2;
 
     while (low <= high)
     {
+        int mid = (low + high) / 2;
         if (isPossible(stalls, k, mid))
         {
             ans = mid;
