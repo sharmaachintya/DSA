@@ -45,7 +45,7 @@ vector<int> shortestPath(vector<pair<int,int>> edges , int n , int m, int s , in
     ans.push_back(t);
     while (currNode != s)
     {
-        currNode = parent[currNode];
+        currNode = parent[currNode];  // Update CurrNode
         ans.push_back(currNode);
     }
     reverse(ans.begin(), ans.end());
