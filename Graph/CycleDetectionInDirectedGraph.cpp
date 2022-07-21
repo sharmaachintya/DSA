@@ -35,6 +35,8 @@ bool cycleDetection(int n, vector<pair<int, int>> edges)
     {
         int u = edges[i].first;
         int v = edges[i].second;
+
+        adj[u].push_back(v);
     }
 
     // check for all components of the graph
