@@ -10,8 +10,6 @@ LinkedList<br/>
 <br/>
 Stacks and Queues<br/>
 <br/>
-Graphs<br/>
-<br/>
 Trees<br/>
 <br/>
 Binary Search Tree<br/>
@@ -19,3 +17,8 @@ Binary Search Tree<br/>
 HashMaps<br/>
 <br/>
 Trie<br/>
+<br/>
+Heap<br/>
+<br/>
+Graphs<br/>
+<br/>
