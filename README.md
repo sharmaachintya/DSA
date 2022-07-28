@@ -1,7 +1,6 @@
-# DSA
-### Data Structure and Algorithms implementation<br/>
+# Data Structure and Algorithms<br/>
 
-#### TOPICS :<br/>
+### TOPICS :<br/>
 
 Arrays<br/>
 <br/>
