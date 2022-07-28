@@ -4,6 +4,10 @@
 </br>
 Arrays<br/>
 <br/>
+Backtracking and Recursion<br/>
+<br/>
+Binary Search<br/>
+<br/>
 LinkedList<br/>
 <br/>
 Stacks and Queues<br/>
