@@ -13,3 +13,9 @@ Stacks and Queues<br/>
 Graphs<br/>
 <br/>
 Trees<br/>
+<br/>
+Binary Search Tree<br/>
+<br/>
+HashMaps<br/>
+<br/>
+Trie<br/>
