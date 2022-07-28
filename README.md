@@ -1,7 +1,7 @@
 # Data Structure and Algorithms<br/>
 
-### TOPICS :<br/>
-
+## TOPICS :<br/>
+</br>
 Arrays<br/>
 <br/>
 LinkedList<br/>
