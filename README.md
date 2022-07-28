@@ -1,8 +1,7 @@
 # DSA
 ### Data Structure and Algorithms implementation<br/>
-LeetCode Solutions
 
-## Content:<br/>
+## TOPICS :<br/>
 
 Arrays<br/>
 <br/>
