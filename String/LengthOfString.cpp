@@ -18,5 +18,4 @@ int main()
     cin>>name;
 
     cout<<"Length of the name is: "<<getLength(name);
-    
 }
