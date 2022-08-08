@@ -19,7 +19,7 @@ int clearBit(int n, int pos)
 
 int updateBit(int n ,int pos, int value)
 {
-    int mask = ~(1<<pos);
+    int mask = ~(1<<pos); 
     n = (n & mask);
 
     return (n | (value << pos));
