@@ -80,15 +80,30 @@ void printList(Node* head)
         temp = temp->next;
     }
 }
+void func(Node* start)
+{
+    if (start == NULL)
+        return;
+    cout<<start->data;
+    if (start->next != NULL)
+    {
+        func(start->next->next);
+    }
+    cout<<start->data;
+}
 
 int main()
 {  
     Node* head = NULL;
     Node* tail = NULL;
 
-    insertionAtHead(20, head, tail);
-    insertionAtHead(30, head, tail);
-    insertAtTail(50, tail, head);
-    insertionAtPosition(40, 2, head, tail);
-    printList(head);
+    insertionAtHead(6, head, tail);
+    insertionAtHead(5, head, tail);
+    insertionAtHead(4, head, tail);
+    insertionAtHead(3, head, tail);
+    insertionAtHead(2, head, tail);
+    insertionAtHead(1, head, tail);
+    // insertAtTail(50, tail, head);
+    // insertionAtPosition(40, 2, head, tail);
+    func(head);
 }
