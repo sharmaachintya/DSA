@@ -35,6 +35,6 @@ string revWords(string s)
 
 int main()
 {
-    string s = " Achi Bawa Kese Ho ? ";
+    string s = "Hello World";
     cout<<"Words after reversing in the String are: "<<revWords(s);
 }
