@@ -55,9 +55,9 @@ vector<int> bottomViewofBT(Node* root)
         TopNode[hd] = temp->data;
 
         if (temp->left)
-            q.push(make_pair(root->left, hd-1));
+            q.push(make_pair(temp->left, hd-1));
         if (temp->right)
-            q.push(make_pair(root->right, hd+1));
+            q.push(make_pair(temp->right, hd+1));
     }
     for(auto i : TopNode)
     {
