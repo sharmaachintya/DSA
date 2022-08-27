@@ -35,12 +35,12 @@ Node* buildTree(Node* root)
     return root;
 }
 
-vector<int> topViewOfBinaryTree(Node* root)
+vector<int> bottomViewofBT(Node* root)
 {
     vector<int> ans;
     if (root == NULL)
         return ans;
-
+    
     map<int, int> TopNode;
     queue<pair<Node*, int>> q;
     q.push(make_pair(root, 0));
@@ -52,28 +52,20 @@ vector<int> topViewOfBinaryTree(Node* root)
         Node* temp = Front.first;
         int hd = Front.second;
 
-        if (TopNode.find(hd) == TopNode.end())
-        {
-            TopNode[hd] = temp->data;
-        }
+        TopNode[hd] = temp->data;
 
         if (temp->left)
-        {
-            q.push(make_pair(root->left,hd-1));
-        }
+            q.push(make_pair(root->left, hd-1));
         if (temp->right)
-        {
-            q.push(make_pair(root->right,hd+1));
-        }
+            q.push(make_pair(root->right, hd+1));
     }
-    for(auto i:TopNode)
+    for(auto i : TopNode)
     {
         ans.push_back(i.second);
     }
-    return ans;
 }
 
 int main()
 {
-
+    
 }
