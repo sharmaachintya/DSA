@@ -16,25 +16,6 @@ class Node{
         }
 };
 
-Node* buildTree(Node* root)
-{
-    cout<<"Enter the data: "<<endl;
-    int data;
-    cin>>data;
-    root = new Node(data);
-
-    if (data == -1)
-    {
-        return NULL;
-    }
-
-    cout<<"Enter data for left node of "<<data<<endl;
-    root->left = buildTree(root->left);
-    cout<<"Enter data for right node of "<<data<<endl;
-    root->right = buildTree(root->right);
-    return root;
-}
-
 int findPos(vector<int> in, int element, int n)
 {
     for (int i=0;i<n;i++)
