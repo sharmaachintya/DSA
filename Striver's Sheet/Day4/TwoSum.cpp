@@ -1,6 +1,27 @@
 #include<iostream>
 #include<vector>
+#include<unordered_map>
 using namespace std;
+
+vector<int> twoSum(vector<int> nums, int target)
+{
+    unordered_map<int, int> mpp;
+    vector<int> ans;
+    if (nums.empty())
+        return ans;
+
+    for (int i=0;i<nums.size();i++)
+    {
+        if (mpp.find(target - nums[i]) != mpp.end())
+        {
+            ans.push_back(mpp[target-nums[i]]);
+            ans.push_back(i);
+        }
+        mpp[nums[i]] = i;
+    }
+    return ans;
+}
+
 int main()
 {
     vector <int> nums = {2, 7, 11, 15};
@@ -22,5 +43,10 @@ int main()
     for (int i=0;i<ans.size();i++)
     {
         cout<<ans[i]<<" ";
+    }
+    vector<int> res = twoSum(nums, target);
+    for (auto i : res)
+    {
+        cout<<i<<" ";
     }
 }
