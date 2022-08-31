@@ -27,8 +27,16 @@ int main()
         cout<<arr1[i]<<" ";
     }
     cout<<endl;
+    // for (int i=0;i<arr2.size();i++)
+    // {
+    //     cout<<arr2[i]<<" ";
+    // }
     for (int i=0;i<arr2.size();i++)
     {
-        cout<<arr2[i]<<" ";
+        arr1.push_back(arr2[i]);
+    }
+    for (auto i: arr1)
+    {
+        cout<<i<<" ";
     }
 }
