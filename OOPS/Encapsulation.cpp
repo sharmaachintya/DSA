@@ -3,7 +3,7 @@ using namespace std;
 class Student {
     private:
         string name;
-        int age;
+        int age = 8;
         int height;
     public:
         int getAge()
@@ -15,4 +15,5 @@ int main()
 {
     Student obj1;
     cout<<"All Good!"<<endl;
+    cout<<obj1.getAge();
 }
