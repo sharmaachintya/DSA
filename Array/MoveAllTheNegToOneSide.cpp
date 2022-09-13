@@ -5,6 +5,7 @@ int main()
 {
     vector<int> arr = {1, -1, 3, 2, -7, -5, 11, 6};
     vector<int> ans;
+    int n = arr.size();
     for (int i=0;i<n;i++)
     {
         if (arr[i] > 0)
