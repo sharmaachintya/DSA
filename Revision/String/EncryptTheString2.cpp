@@ -43,7 +43,7 @@ string solve(string str)
     ans += hex;
     reverse(ans.begin(), ans.end());
     return ans;
-}
+} 
  
 int main()
 {
