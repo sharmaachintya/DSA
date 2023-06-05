@@ -48,7 +48,7 @@ bool isCircular(Node* head)
         return false;
     
     Node* temp = head->next;
-    while (temp != NULL || temp != head)
+    while (temp != NULL && temp != head)
     {
         temp = temp->next;
     }
