@@ -43,7 +43,7 @@ int heightBT(Node* root)
     int ans = max(h1, h2) + 1;
     return ans;
 }
-
+ 
 int main()
 {
     Node* root = NULL;
