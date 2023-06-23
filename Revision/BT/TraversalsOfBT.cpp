@@ -77,16 +77,16 @@ void preOrder(Node* root)
     if (root == NULL)
         return;
     cout<<root->data<<" ";
-    inOrder(root->left);
-    inOrder(root->right);
+    preOrder(root->left);
+    preOrder(root->right);
 }
 
 void postOrder(Node* root)
 {
     if (root == NULL)
         return;
-    inOrder(root->left);
-    inOrder(root->right);
+    postOrder(root->left);
+    postOrder(root->right);
     cout<<root->data<<" ";
 }
 
